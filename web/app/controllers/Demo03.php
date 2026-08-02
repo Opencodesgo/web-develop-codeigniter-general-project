@@ -10,13 +10,13 @@ class Demo03 extends CI_Controller {
 		$this->load->helper('file');
 	}
 	
-	//http://localhost:8024/demo03
+	//http://localhost:8102/demo03
 	public function index() {		
 		echo 'This is Demo03';
 	}
 	
 	/**
-	 * http://localhost:8024/demo03/gettxt
+	 * http://localhost:8102/demo03/gettxt
 	 * 场景1：读写TXT文本
 	 */
 	public function gettxt() {
@@ -28,7 +28,7 @@ class Demo03 extends CI_Controller {
 	}
 	
 	/**
-	 * http://localhost:8024/demo03/getpdf
+	 * http://localhost:8102/demo03/getpdf
 	 * 场景1：读取PDF
 	 */
 	public function getpdf() {

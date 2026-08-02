@@ -446,6 +446,7 @@ class CI_Email {
 
 	/**
 	 * Initialize the Email Data
+	 * 初始化数据，也就是清掉
 	 *
 	 * @param	bool
 	 * @return	CI_Email

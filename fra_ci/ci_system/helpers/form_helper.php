@@ -57,6 +57,7 @@ if ( ! function_exists('form_open'))
 {
 	/**
 	 * Form Declaration
+	 * 表格申明
 	 *
 	 * Creates the opening portion of the form.
 	 *
@@ -176,6 +177,7 @@ if ( ! function_exists('form_hidden'))
 {
 	/**
 	 * Hidden Input Field
+	 * 隐藏输入字段
 	 *
 	 * Generates hidden fields. You can pass a simple key/value string or
 	 * an associative array with multiple values.
@@ -227,6 +229,7 @@ if ( ! function_exists('form_input'))
 {
 	/**
 	 * Text Input Field
+	 * 文本输入字段
 	 *
 	 * @param	mixed
 	 * @param	string
@@ -251,6 +254,7 @@ if ( ! function_exists('form_password'))
 {
 	/**
 	 * Password Field
+	 * 密码字段
 	 *
 	 * Identical to the input function but adds the "password" type
 	 *
@@ -273,6 +277,7 @@ if ( ! function_exists('form_upload'))
 {
 	/**
 	 * Upload Field
+	 * 上传字段
 	 *
 	 * Identical to the input function but adds the "file" type
 	 *
@@ -297,6 +302,7 @@ if ( ! function_exists('form_textarea'))
 {
 	/**
 	 * Textarea field
+	 * 大文件框
 	 *
 	 * @param	mixed	$data
 	 * @param	string	$value
@@ -333,6 +339,7 @@ if ( ! function_exists('form_multiselect'))
 {
 	/**
 	 * Multi-select menu
+	 * 多选择下拉
 	 *
 	 * @param	string
 	 * @param	array
@@ -358,6 +365,7 @@ if ( ! function_exists('form_dropdown'))
 {
 	/**
 	 * Drop-down Menu
+	 * 下拉
 	 *
 	 * @param	mixed	$data
 	 * @param	mixed	$options
@@ -453,6 +461,7 @@ if ( ! function_exists('form_checkbox'))
 {
 	/**
 	 * Checkbox Field
+	 * 选中字段
 	 *
 	 * @param	mixed
 	 * @param	string
@@ -497,6 +506,7 @@ if ( ! function_exists('form_radio'))
 {
 	/**
 	 * Radio Button
+	 * 单选按钮
 	 *
 	 * @param	mixed
 	 * @param	string
@@ -519,6 +529,7 @@ if ( ! function_exists('form_submit'))
 {
 	/**
 	 * Submit Button
+	 * 提交按钮
 	 *
 	 * @param	mixed
 	 * @param	string
@@ -543,6 +554,7 @@ if ( ! function_exists('form_reset'))
 {
 	/**
 	 * Reset Button
+	 * 重置按钮
 	 *
 	 * @param	mixed
 	 * @param	string

@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * CI框架Router路由类将URI映射到对应的控制器及方法，Router类大量代码处理的是自定义路由
- * 该类主要支撑以下几个功能点：
+ * 该类主要提供以下几个功能点：
  * 1、自定义路由规则
  * 2、支持回调函数
  * 3、支持使用HTTP动态
@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * Router Class
- * 路由类
+ * 路由类，同URI类一起使用
  *
  * Parses URIs and determines routing
  *
@@ -192,7 +192,7 @@ class CI_Router {
 		}
 
 		// Validate & get reserved routes
-		// 得到转化后的路由
+		// 得到转化后的路由，$route从配置文件里获得
 		if (isset($route) && is_array($route))
 		{
 			isset($route['default_controller']) && $this->default_controller = $route['default_controller'];
@@ -352,7 +352,7 @@ class CI_Router {
 
 	/**
 	 * Validate request
-	 * 验证请求，主要是识别目录d
+	 * 验证请求，主要是识别目录
 	 *
 	 * Attempts validate the URI request and determine the controller path.
 	 *

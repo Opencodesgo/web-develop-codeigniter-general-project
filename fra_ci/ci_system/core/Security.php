@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * CI框架安全类包含了一些方法，加载入CodeIgniter.php
- * CI框架安全类提供了全局防御 CSRF攻击和 XSS攻击策略，只需要在配置文件开启即可并提供了实用方法
+ * CI框架安全类提供了全局防御 CSRF攻击和 XSS攻击策略，只需要在配置文件开启即可并提供了使用方法
  */
  
 /**
@@ -80,6 +80,7 @@ class CI_Security {
 
 	/**
 	 * Character set
+	 * 设置字符集
 	 *
 	 * Will be overridden by the constructor.
 	 *
@@ -89,6 +90,7 @@ class CI_Security {
 
 	/**
 	 * XSS Hash
+	 * XSS 哈希
 	 *
 	 * Random Hash for protecting URLs.
 	 *
@@ -782,6 +784,7 @@ class CI_Security {
 
 	/**
 	 * Strip Image Tags
+	 * 条形图像标签
 	 *
 	 * @param	string	$str
 	 * @return	string

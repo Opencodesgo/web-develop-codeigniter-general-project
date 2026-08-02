@@ -38,11 +38,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * 这些需要对这个类整体功能做下说明
+ * 数据库制造类
  */
 
 /**
  * Database Forge Class
+ * 数据库制造类
  *
  * @category	Database
  * @author		EllisLab Dev Team
@@ -178,6 +179,7 @@ abstract class CI_DB_forge {
 
 	/**
 	 * Create database
+	 * 创建数据库
 	 *
 	 * @param	string	$db_name
 	 * @return	bool
@@ -205,6 +207,7 @@ abstract class CI_DB_forge {
 
 	/**
 	 * Drop database
+	 * 删除数据库
 	 *
 	 * @param	string	$db_name
 	 * @return	bool
@@ -236,6 +239,7 @@ abstract class CI_DB_forge {
 
 	/**
 	 * Add Key
+	 * 添加主键
 	 *
 	 * @param	string	$key
 	 * @param	bool	$primary
@@ -275,6 +279,7 @@ abstract class CI_DB_forge {
 
 	/**
 	 * Add Field
+	 * 添加字段
 	 *
 	 * @param	array	$field
 	 * @return	CI_DB_forge
@@ -317,6 +322,7 @@ abstract class CI_DB_forge {
 
 	/**
 	 * Create Table
+	 * 新建表
 	 *
 	 * @param	string	$table		Table name
 	 * @param	bool	$if_not_exists	Whether to add IF NOT EXISTS condition
@@ -375,6 +381,7 @@ abstract class CI_DB_forge {
 
 	/**
 	 * Create Table
+	 * 创建表执行方法
 	 *
 	 * @param	string	$table		Table name
 	 * @param	bool	$if_not_exists	Whether to add 'IF NOT EXISTS' condition
@@ -452,6 +459,7 @@ abstract class CI_DB_forge {
 
 	/**
 	 * Drop Table
+	 * 删除表
 	 *
 	 * @param	string	$table_name	Table name
 	 * @param	bool	$if_exists	Whether to add an IF EXISTS condition
@@ -488,6 +496,7 @@ abstract class CI_DB_forge {
 
 	/**
 	 * Drop Table
+	 * 删除表执行方法
 	 *
 	 * Generates a platform-specific DROP TABLE string
 	 *
@@ -521,6 +530,7 @@ abstract class CI_DB_forge {
 
 	/**
 	 * Rename Table
+	 * 重命名表
 	 *
 	 * @param	string	$table_name	Old table name
 	 * @param	string	$new_table_name	New table name

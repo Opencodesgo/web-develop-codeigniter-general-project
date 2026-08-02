@@ -435,6 +435,7 @@ class CI_Input {
 
 	/**
 	 * Fetch the IP Address
+	 * 获取IP Address
 	 *
 	 * Determines and validates the visitor's IP address.
 	 *
@@ -453,6 +454,7 @@ class CI_Input {
 			$proxy_ips = explode(',', str_replace(' ', '', $proxy_ips));
 		}
 
+		// 使用REMOTE_ADDR获取IP
 		$this->ip_address = $this->server('REMOTE_ADDR');
 
 		if ($proxy_ips)

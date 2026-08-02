@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
 |--------------------------------------------------------------------------
-| Base Site URL、
+| Base Site URL
 | 基本配置文件
 |--------------------------------------------------------------------------
 |
@@ -41,6 +41,7 @@ $config['index_page'] = 'index.php';
 /*
 |--------------------------------------------------------------------------
 | URI PROTOCOL
+| URI 协议
 |--------------------------------------------------------------------------
 |
 | This item determines which server global should be used to retrieve the
@@ -227,7 +228,8 @@ $config['allow_get_array'] = TRUE;
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 4;
+// 框架默认为0，改为了4，生产环境注意改过来
 
 /*
 |--------------------------------------------------------------------------

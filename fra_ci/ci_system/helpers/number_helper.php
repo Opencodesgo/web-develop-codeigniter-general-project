@@ -57,6 +57,7 @@ if ( ! function_exists('byte_format'))
 {
 	/**
 	 * Formats a numbers as bytes, based on size, and adds the appropriate suffix
+	 * 通过字节格式化数据，根据大小，并添加适当的后缀
 	 *
 	 * @param	mixed	will be cast as int
 	 * @param	int

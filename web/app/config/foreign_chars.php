@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------
 | Foreign Characters
+| 配置-外部字符串
 | -------------------------------------------------------------------
 | This file contains an array of foreign characters for transliteration
 | conversion used by the Text helper

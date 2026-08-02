@@ -76,6 +76,7 @@ class CI_Zip {
 
 	/**
 	 * Number of files/folder in zip file
+	 * 压缩包里文件或目录数
 	 *
 	 * @var int
 	 */
@@ -83,6 +84,7 @@ class CI_Zip {
 
 	/**
 	 * Number of files in zip
+	 * 压缩包里文件数
 	 *
 	 * @var int
 	 */
@@ -136,6 +138,7 @@ class CI_Zip {
 
 	/**
 	 * Add Directory
+	 * 添加目录
 	 *
 	 * Lets you add a virtual directory into which you can place files.
 	 *

@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------
 | DATABASE CONNECTIVITY SETTINGS
+| 数据库配置文件
 | -------------------------------------------------------------------
 | This file will contain the settings needed to access your database.
 |
@@ -75,10 +76,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
-	'database' => '',
+	'hostname' => '127.0.0.1',
+	'username' => 'user_db',
+	'password' => '123456',
+	'port'	   => '3306',
+	'database' => 'dev_ci_pca',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

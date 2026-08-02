@@ -140,6 +140,7 @@ if ( ! function_exists('force_download'))
 		}
 
 		// Generate the server headers
+		// 生成服务头
 		header('Content-Type: '.$mime);
 		header('Content-Disposition: attachment; filename="'.$filename.'"');
 		header('Expires: 0');

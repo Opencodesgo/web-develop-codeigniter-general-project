@@ -66,11 +66,11 @@ if ( ! function_exists('hash_equals'))
 {
 	/**
 	 * hash_equals()
-	 * 哈希相等
+	 * 哈希相等，防止进序攻击的字符串比较
 	 *
 	 * @link	http://php.net/hash_equals
-	 * @param	string	$known_string
-	 * @param	string	$user_string
+	 * @param	string	$known_string	必须保密的已知字符串
+	 * @param	string	$user_string	与已知字符串进行比较的用户提供的字符串
 	 * @return	bool
 	 */
 	function hash_equals($known_string, $user_string)

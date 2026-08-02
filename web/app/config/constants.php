@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace
+| 配置文件，显示调试跟踪信息
 |--------------------------------------------------------------------------
 |
 | If set to TRUE, a backtrace will be displayed along with php errors. If
@@ -17,6 +18,7 @@ defined('SHOW_DEBUG_BACKTRACE') OR define('SHOW_DEBUG_BACKTRACE', TRUE);	#显示
 /*
 |--------------------------------------------------------------------------
 | File and Directory Modes
+| 文件和目录的读写权限设置
 |--------------------------------------------------------------------------
 |
 | These prefs are used when checking and setting modes when working
@@ -25,17 +27,18 @@ defined('SHOW_DEBUG_BACKTRACE') OR define('SHOW_DEBUG_BACKTRACE', TRUE);	#显示
 | certain environments (Apache running a separate process for each
 | user, PHP under CGI with Apache suEXEC, etc.).  Octal values should
 | always be used to set the mode correctly.
-| 文件和目录的读写权限设置
+| 检查和设置文件模块
 |
 */
 defined('FILE_READ_MODE')  OR define('FILE_READ_MODE', 0644);		#文件读模式
 defined('FILE_WRITE_MODE') OR define('FILE_WRITE_MODE', 0666);		#文件写模式
 defined('DIR_READ_MODE')   OR define('DIR_READ_MODE', 0755);		#目录读模式
-defined('DIR_WRITE_MODE')  OR define('DIR_WRITE_MODE', 0755);		#目录写模式
+defined('DIR_WRITE_MODE')  OR define('DIR_WRITE_MODE', 0755);		#目录写模式，这个？
 
 /*
 |--------------------------------------------------------------------------
 | File Stream Modes
+| 文件流模式
 |--------------------------------------------------------------------------
 |
 | These modes are used when working with fopen()/popen()
@@ -54,6 +57,7 @@ defined('FOPEN_READ_WRITE_CREATE_STRICT')       OR define('FOPEN_READ_WRITE_CREA
 /*
 |--------------------------------------------------------------------------
 | Exit Status Codes
+| 退出状态代码
 |--------------------------------------------------------------------------
 |
 | Used to indicate the conditions under which the script is exit()ing.

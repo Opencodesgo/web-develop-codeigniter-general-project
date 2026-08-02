@@ -54,6 +54,7 @@ class CI_FTP {
 
 	/**
 	 * FTP Server hostname
+	 * 服务主机
 	 *
 	 * @var	string
 	 */
@@ -61,6 +62,7 @@ class CI_FTP {
 
 	/**
 	 * FTP Username
+	 * 用户名
 	 *
 	 * @var	string
 	 */
@@ -68,6 +70,7 @@ class CI_FTP {
 
 	/**
 	 * FTP Password
+	 * 密码
 	 *
 	 * @var	string
 	 */
@@ -75,6 +78,7 @@ class CI_FTP {
 
 	/**
 	 * FTP Server port
+	 * 服务端口，默认21
 	 *
 	 * @var	int
 	 */
@@ -134,7 +138,7 @@ class CI_FTP {
 		{
 			if (isset($this->$key))
 			{
-				$this->$key = $val;
+				$this->$key = $val;		#这里建议中上trim
 			}
 		}
 
@@ -147,6 +151,7 @@ class CI_FTP {
 
 	/**
 	 * FTP Connect
+	 * FTP 连接
 	 *
 	 * @param	array	 $config	Connection values
 	 * @return	bool
@@ -262,6 +267,7 @@ class CI_FTP {
 
 	/**
 	 * Create a directory
+	 * 创建一个目录
 	 *
 	 * @param	string	$path
 	 * @param	int	$permissions
@@ -299,6 +305,7 @@ class CI_FTP {
 
 	/**
 	 * Upload a file to the server
+	 * 上传一个文件至服务器
 	 *
 	 * @param	string	$locpath
 	 * @param	string	$rempath
@@ -354,6 +361,7 @@ class CI_FTP {
 
 	/**
 	 * Download a file from a remote server to the local server
+	 * 下载一个文件从服务器至本地
 	 *
 	 * @param	string	$rempath
 	 * @param	string	$locpath
@@ -396,6 +404,7 @@ class CI_FTP {
 
 	/**
 	 * Rename (or move) a file
+	 * 重命名一个文件
 	 *
 	 * @param	string	$old_file
 	 * @param	string	$new_file
@@ -428,6 +437,7 @@ class CI_FTP {
 
 	/**
 	 * Move a file
+	 * 移动文件，类似于重命名
 	 *
 	 * @param	string	$old_file
 	 * @param	string	$new_file
@@ -442,6 +452,7 @@ class CI_FTP {
 
 	/**
 	 * Rename (or move) a file
+	 * 删除一个文件，这里应该是写错了
 	 *
 	 * @param	string	$filepath
 	 * @return	bool
@@ -472,6 +483,7 @@ class CI_FTP {
 
 	/**
 	 * Delete a folder and recursively delete everything (including sub-folders)
+	 * 删除一个目录并含子文件夹
 	 * contained within it.
 	 *
 	 * @param	string	$filepath
@@ -518,6 +530,7 @@ class CI_FTP {
 
 	/**
 	 * Set file permissions
+	 * 设置文件权限
 	 *
 	 * @param	string	$path	File path
 	 * @param	int	$perm	Permissions
@@ -547,6 +560,7 @@ class CI_FTP {
 
 	/**
 	 * FTP List files in the specified directory
+	 * 列出指定目录文件
 	 *
 	 * @param	string	$path
 	 * @return	array
@@ -562,6 +576,7 @@ class CI_FTP {
 
 	/**
 	 * Read a directory and recreate it remotely
+	 * 读取一个目录并远程创建副本
 	 *
 	 * This function recursively reads a folder and everything it contains
 	 * (including sub-folders) and creates a mirror via FTP based on it.

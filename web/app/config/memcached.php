@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------------
 | Memcached settings
+| 配置-Memcach 设置
 | -------------------------------------------------------------------------
 | Your Memcached servers can be specified below.
 |

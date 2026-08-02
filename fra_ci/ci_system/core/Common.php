@@ -40,12 +40,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * 定义了一系列的全局函数，加载入CodeIgniter.php 96
  * 一般来说，全局函数具有最高的加载优先权，因此大多数的框架中 BootStrap引导文件都会最先引入
- * 相当于对php内置的函数进行一优化和补充
+ * 相当于对php内置的函数进行一些优化和补充
  */
 
 /**
  * Common Functions
- * 公共函数
+ * 公共函数，加载入CodeIgniter.php
  *
  * Loads the base classes and executes the request.
  *
@@ -90,6 +90,7 @@ if ( ! function_exists('is_really_writable'))
 {
 	/**
 	 * Tests for file writability
+	 * 测试文件可写
 	 *
 	 * is_writable() returns TRUE on Windows servers when you really can't write to
 	 * the file, based on the read-only attribute. is_writable() is also unreliable
@@ -102,7 +103,7 @@ if ( ! function_exists('is_really_writable'))
 	function is_really_writable($file)
 	{
 		// If we're on a Unix server with safe_mode off we call is_writable
-		// 如果是Unix服务器且未开安全模式即可读
+		// 如果是Unix服务器且未开安全模式使用内置函数is_writable
 		if (DIRECTORY_SEPARATOR === '/' && (is_php('5.4') OR ! ini_get('safe_mode')))
 		{
 			return is_writable($file);
@@ -129,6 +130,7 @@ if ( ! function_exists('is_really_writable'))
 			return FALSE;
 		}
 
+		//这个关闭可能并未打开
 		fclose($fp);
 		return TRUE;
 	}
@@ -141,7 +143,7 @@ if ( ! function_exists('load_class'))
 {
 	/**
 	 * Class registry
-	 * 类注册，这是一个神奇的类，使用相当频繁
+	 * 类注册，这是一个神奇的函数，使用相当频繁
 	 *
 	 * This function acts as a singleton. If the requested class does not
 	 * exist it is instantiated and set to a static variable. If it has
@@ -169,7 +171,7 @@ if ( ! function_exists('load_class'))
 
 		// Look for the class first in the local application/libraries folder
 		// then in the native system/libraries folder
-		// 先从app再从system里找这个类文件
+		// 先从app再从system里找这个类文件，加CI_前缀
 		foreach (array(APPPATH, BASEPATH) as $path)
 		{
 			if (file_exists($path.$directory.'/'.$class.'.php'))
@@ -178,7 +180,7 @@ if ( ! function_exists('load_class'))
 
 				if (class_exists($name, FALSE) === FALSE)
 				{
-					// 引入类文件，会加载入应用自己的类文件、框架自带的类文件，全凭这一条语句
+					// 引入类文件，会加载入应用自己或框架下的这个类文件，全凭这一条语句
 					require_once($path.$directory.'/'.$class.'.php');
 				}
 
@@ -187,14 +189,14 @@ if ( ! function_exists('load_class'))
 		}
 
 		// Is the request a class extension? If so we load it too
-		// 加载自定义前缀扩展类，如MY_
+		// 从app里找这个类文件，加MY_前缀
 		if (file_exists(APPPATH.$directory.'/'.config_item('subclass_prefix').$class.'.php'))
 		{
-			$name = config_item('subclass_prefix').$class;
+			$name = config_item('subclass_prefix').$class;	#框架自动把类名加前缀，如MY_
 
 			if (class_exists($name, FALSE) === FALSE)
 			{
-				// 再次引入类文件，来自于应用里的类
+				// 再次引入类文件，会加载入应用自己下的这个类文件
 				require_once(APPPATH.$directory.'/'.$name.'.php');
 			}
 		}
@@ -257,9 +259,11 @@ if ( ! function_exists('get_config'))
 {
 	/**
 	 * Loads the main config.php file
+	 * 加载配置文件
 	 *
 	 * This function lets us grab the config file even if the Config class
 	 * hasn't been instantiated yet
+	 * 允许我们获取配置文件，即使配置类还未实例化
 	 *
 	 * @param	array
 	 * @return	array
@@ -270,6 +274,7 @@ if ( ! function_exists('get_config'))
 
 		if (empty($config))
 		{
+			// 获取应用下config目录下config文件
 			$file_path = APPPATH.'config/config.php';
 			$found = FALSE;
 			if (file_exists($file_path))
@@ -300,6 +305,7 @@ if ( ! function_exists('get_config'))
 		}
 
 		// Are any values being dynamically added or replaced?
+		// 当有值被动态添加或替换，做一下处理
 		foreach ($replace as $key => $val)
 		{
 			$config[$key] = $val;
@@ -316,6 +322,7 @@ if ( ! function_exists('config_item'))
 {
 	/**
 	 * Returns the specified config item
+	 * 取出配置文件里的值
 	 *
 	 * @param	string
 	 * @return	mixed
@@ -342,6 +349,7 @@ if ( ! function_exists('get_mimes'))
 {
 	/**
 	 * Returns the MIME types array from config/mimes.php
+	 * 返回MIME类型配置内容
 	 *
 	 * @return	array
 	 */
@@ -351,6 +359,7 @@ if ( ! function_exists('get_mimes'))
 
 		if (empty($_mimes))
 		{
+			// 获取应用下config目录下mimes文件
 			$_mimes = file_exists(APPPATH.'config/mimes.php')
 				? include(APPPATH.'config/mimes.php')
 				: array();
@@ -372,6 +381,7 @@ if ( ! function_exists('is_https'))
 {
 	/**
 	 * Is HTTPS?
+	 * 是否https连接
 	 *
 	 * Determines if the application is accessed via an encrypted
 	 * (HTTPS) connection.
@@ -405,6 +415,7 @@ if ( ! function_exists('is_cli'))
 
 	/**
 	 * Is CLI?
+	 * 是否是CLI客户端，这个用得少
 	 *
 	 * Test to see if a request was made from the command line.
 	 *
@@ -423,12 +434,14 @@ if ( ! function_exists('show_error'))
 {
 	/**
 	 * Error Handler
+	 * 错误处理程序
 	 *
 	 * This function lets us invoke the exception class and
 	 * display errors using the standard error template located
 	 * in application/views/errors/error_general.php
 	 * This function will send the error page directly to the
 	 * browser and exit.
+	 * 这个函数让我们调用异常类且显示错误至浏览器
 	 *
 	 * @param	string
 	 * @param	int
@@ -461,6 +474,7 @@ if ( ! function_exists('show_404'))
 {
 	/**
 	 * 404 Page Handler
+	 * 显示404
 	 *
 	 * This function is similar to the show_error() function above
 	 * However, instead of the standard error template it displays
@@ -485,6 +499,7 @@ if ( ! function_exists('log_message'))
 {
 	/**
 	 * Error Logging Interface
+	 * 记录错误日志
 	 *
 	 * We use this as a simple mechanism to access the logging
 	 * class and send messages to be logged.
@@ -501,6 +516,7 @@ if ( ! function_exists('log_message'))
 		if ($_log === NULL)
 		{
 			// references cannot be directly assigned to static variables, so we use an array
+			// 引用赋值给数组
 			$_log[0] =& load_class('Log', 'core');
 		}
 
@@ -515,6 +531,8 @@ if ( ! function_exists('set_status_header'))
 {
 	/**
 	 * Set HTTP Status Header
+	 * 设置HTTP头状态
+	 * 
 	 *
 	 * @param	int	the status code
 	 * @param	string
@@ -617,6 +635,7 @@ if ( ! function_exists('_error_handler'))
 {
 	/**
 	 * Error Handler
+	 * 错误处理子方法
 	 *
 	 * This is the custom error handler that is declared at the (relative)
 	 * top of CodeIgniter.php. The main reason we use this is to permit
@@ -642,6 +661,7 @@ if ( ! function_exists('_error_handler'))
 		// it is only called when the display_errors flag is set (which isn't usually
 		// the case in a production environment) or when errors are ignored because
 		// they are above the error_reporting threshold.
+		// 只有在设置了display_errors标志时才会调用它（通常情况下生产环境中的情况)
 		if ($is_error)
 		{
 			set_status_header(500);
@@ -680,6 +700,7 @@ if ( ! function_exists('_exception_handler'))
 {
 	/**
 	 * Exception Handler
+	 * 异常处理子方法
 	 *
 	 * Sends uncaught exceptions to the logger and displays them
 	 * only if display_errors is On so that they don't show up in
@@ -711,6 +732,7 @@ if ( ! function_exists('_shutdown_handler'))
 {
 	/**
 	 * Shutdown Handler
+	 * 关闭处理子方法
 	 *
 	 * This is the shutdown handler that is declared at the top
 	 * of CodeIgniter.php. The main reason we use this is to simulate
@@ -740,6 +762,7 @@ if ( ! function_exists('remove_invisible_characters'))
 {
 	/**
 	 * Remove Invisible Characters
+	 * 删除不可见字符
 	 *
 	 * This prevents sandwiching null characters
 	 * between ascii characters, like Java\0script.
@@ -780,6 +803,7 @@ if ( ! function_exists('html_escape'))
 {
 	/**
 	 * Returns HTML escaped variable.
+	 * 返回HTML转义值
 	 *
 	 * @param	mixed	$var		The input string or array of strings to be escaped.
 	 * @param	bool	$double_encode	$double_encode set to FALSE prevents escaping twice.
@@ -848,11 +872,12 @@ if ( ! function_exists('_stringify_attributes'))
 
 // ------------------------------------------------------------------------
 
-// 020方法不可用
+// 020函数可用
 if ( ! function_exists('function_usable'))
 {
 	/**
 	 * Function usable
+	 * 检查函数可用
 	 *
 	 * Executes a function_exists() check, and if the Suhosin PHP
 	 * extension is loaded - checks whether the function that is

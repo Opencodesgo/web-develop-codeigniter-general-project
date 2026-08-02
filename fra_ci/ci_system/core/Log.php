@@ -120,6 +120,7 @@ class CI_Log {
 
 	/**
 	 * mbstring.func_overload flag
+	 * 重载标志
 	 *
 	 * @var	bool
 	 */
@@ -145,7 +146,7 @@ class CI_Log {
 		$this->_file_ext = (isset($config['log_file_extension']) && $config['log_file_extension'] !== '')
 			? ltrim($config['log_file_extension'], '.') : 'php';
 
-		// 文件如不存在则创建
+		// 目录如不存在则创建
 		file_exists($this->_log_path) OR mkdir($this->_log_path, 0755, TRUE);
 
 		if ( ! is_dir($this->_log_path) OR ! is_really_writable($this->_log_path))
@@ -182,8 +183,8 @@ class CI_Log {
 	 *
 	 * Generally this function will be called using the global log_message() function
 	 *
-	 * @param	string	$level 	The error level: 'error', 'debug' or 'info'
-	 * @param	string	$msg 	The error message
+	 * @param	string	$level 	The error level: 'error', 'debug' or 'info'	级别
+	 * @param	string	$msg 	The error message	内容
 	 * @return	bool
 	 */
 	public function write_log($level, $msg)
@@ -195,6 +196,7 @@ class CI_Log {
 
 		$level = strtoupper($level);
 
+		// $this->_levels[$level] > $this->_threshold，配置的级别同这里的级别进行对比
 		if (( ! isset($this->_levels[$level]) OR ($this->_levels[$level] > $this->_threshold))
 			&& ! isset($this->_threshold_array[$this->_levels[$level]]))
 		{
@@ -203,7 +205,7 @@ class CI_Log {
 
 		$filepath = $this->_log_path.'log-'.date('Y-m-d').'.'.$this->_file_ext;
 		$message = '';
-
+	
 		if ( ! file_exists($filepath))
 		{
 			$newfile = TRUE;
@@ -234,6 +236,7 @@ class CI_Log {
 			$date = date($this->_date_fmt);
 		}
 
+		// 格式化日志行
 		$message .= $this->_format_line($level, $date, $msg);
 
 		for ($written = 0, $length = self::strlen($message); $written < $length; $written += $result)
@@ -259,6 +262,7 @@ class CI_Log {
 
 	/**
 	 * Format the log line.
+	 * 格式化日志行
 	 *
 	 * This is for extensibility of log formatting
 	 * If you want to change the log format, extend the CI_Log class and override this method
@@ -292,11 +296,12 @@ class CI_Log {
 
 	/**
 	 * Byte-safe substr()
+	 * 字节安全字符串
 	 *
-	 * @param	string	$str
-	 * @param	int	$start
-	 * @param	int	$length
-	 * @return	string
+	 * @param	string	$str	字符串
+	 * @param	int	$start		开始位置
+	 * @param	int	$length		长度
+	 * @return	string			返回字符串
 	 */
 	protected static function substr($str, $start, $length = NULL)
 	{

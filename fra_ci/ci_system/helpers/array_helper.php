@@ -57,6 +57,7 @@ if ( ! function_exists('element'))
 {
 	/**
 	 * Element
+	 * 元素，返回值
 	 *
 	 * Lets you determine whether an array index is set and whether it has a value.
 	 * If the element is empty it returns NULL (or whatever you specify as the default value.)
@@ -78,6 +79,7 @@ if ( ! function_exists('random_element'))
 {
 	/**
 	 * Random Element - Takes an array as input and returns a random element
+	 * 将数组作为一个输入并随机返回一个随机元素
 	 *
 	 * @param	array
 	 * @return	mixed	depends on what the array contains

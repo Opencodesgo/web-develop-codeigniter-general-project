@@ -89,6 +89,7 @@ class CI_DB_Cache {
 
 	/**
 	 * Set Cache Directory Path
+	 * 设置Cache目录
 	 *
 	 * @param	string	$path	Path to the cache directory
 	 * @return	bool
@@ -134,6 +135,7 @@ class CI_DB_Cache {
 
 	/**
 	 * Retrieve a cached query
+	 * 检索缓存查询
 	 *
 	 * The URI being requested will become the name of the cache sub-folder.
 	 * An MD5 hash of the SQL statement will become the cache file name.
@@ -159,6 +161,7 @@ class CI_DB_Cache {
 
 	/**
 	 * Write a query to a cache file
+	 * 将一个查询写入缓存文件
 	 *
 	 * @param	string	$sql
 	 * @param	object	$object
@@ -189,6 +192,7 @@ class CI_DB_Cache {
 
 	/**
 	 * Delete cache files within a particular directory
+	 * 删除特定目录里的缓存文件
 	 *
 	 * @param	string	$segment_one
 	 * @param	string	$segment_two
@@ -214,6 +218,7 @@ class CI_DB_Cache {
 
 	/**
 	 * Delete all existing cache files
+	 * 删除所有缓存文件
 	 *
 	 * @return	void
 	 */

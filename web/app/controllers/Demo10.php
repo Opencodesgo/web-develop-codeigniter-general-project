@@ -1,11 +1,11 @@
 <?php
 /**
- * Demo10 待定
+ * Demo10 接口API
  */
 
 class Demo10 extends CI_Controller {
 	
-	//http://localhost:8024/demo10
+	//http://localhost:8102/demo10
 	public function index() {		
 		echo 'This is Demo10';
 	}

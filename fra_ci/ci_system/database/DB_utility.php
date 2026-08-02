@@ -38,11 +38,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * 这些需要对这个类整体功能做下说明
+ * 数据库公共操作类
  */
 
 /**
  * Database Utility Class
+ * 数据库公共类
  *
  * @category	Database
  * @author		EllisLab Dev Team
@@ -98,6 +99,7 @@ abstract class CI_DB_utility {
 
 	/**
 	 * List databases
+	 * 数据库名列表
 	 *
 	 * @return	array
 	 */
@@ -146,6 +148,7 @@ abstract class CI_DB_utility {
 
 	/**
 	 * Optimize Table
+	 * 修复表
 	 *
 	 * @param	string	$table_name
 	 * @return	mixed
@@ -171,6 +174,7 @@ abstract class CI_DB_utility {
 
 	/**
 	 * Optimize Database
+	 * 优化数据库
 	 *
 	 * @return	mixed
 	 */
@@ -207,6 +211,7 @@ abstract class CI_DB_utility {
 
 	/**
 	 * Repair Table
+	 * 修复表
 	 *
 	 * @param	string	$table_name
 	 * @return	mixed
@@ -319,6 +324,7 @@ abstract class CI_DB_utility {
 
 	/**
 	 * Database Backup
+	 * 数据库备份
 	 *
 	 * @param	array	$params
 	 * @return	string

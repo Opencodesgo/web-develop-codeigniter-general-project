@@ -38,6 +38,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
+ * Cache类
+ */
+
+/**
  * CodeIgniter Caching Class
  *
  * @package		CodeIgniter

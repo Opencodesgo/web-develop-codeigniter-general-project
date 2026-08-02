@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  
 /**
  * URI Class
- * URI 类
+ * URI 类，同Router类一起使用
  *
  * Parses URIs and determines routing
  *
@@ -59,6 +59,7 @@ class CI_URI {
 
 	/**
 	 * List of cached URI segments
+	 * 存储URI列表
 	 *
 	 * @var	array
 	 */
@@ -66,6 +67,7 @@ class CI_URI {
 
 	/**
 	 * Current URI string
+	 * 当前URI字符串
 	 *
 	 * @var	string
 	 */
@@ -124,7 +126,7 @@ class CI_URI {
 			else
 			{
 				$protocol = $this->config->item('uri_protocol');
-				empty($protocol) && $protocol = 'REQUEST_URI';
+				empty($protocol) && $protocol = 'REQUEST_URI';		#默认REQUEST_URI
 
 				switch ($protocol)
 				{
@@ -154,6 +156,7 @@ class CI_URI {
 
 	/**
 	 * Set URI String
+	 * 设置URI字符串
 	 *
 	 * @param 	string	$str
 	 * @return	void
@@ -166,6 +169,7 @@ class CI_URI {
 		if ($this->uri_string !== '')
 		{
 			// Remove the URL suffix, if present
+			// 删除URL后缀
 			if (($suffix = (string) $this->config->item('url_suffix')) !== '')
 			{
 				$slen = strlen($suffix);
@@ -178,6 +182,7 @@ class CI_URI {
 
 			$this->segments[0] = NULL;
 			// Populate the segments array
+			// 下面这段代码以/拆开链接
 			foreach (explode('/', trim($this->uri_string, '/')) as $val)
 			{
 				$val = trim($val);
@@ -198,6 +203,7 @@ class CI_URI {
 
 	/**
 	 * Parse REQUEST_URI
+	 * 分析REQUEST_URI
 	 *
 	 * Will parse REQUEST_URI and automatically detect the URI from it,
 	 * while fixing the query string if necessary.
@@ -213,6 +219,7 @@ class CI_URI {
 
 		// parse_url() returns false if no host is present, but the path or query string
 		// contains a colon followed by a number
+		// 使用parse_url分析一个REQUEST_URI
 		$uri = parse_url('http://dummy'.$_SERVER['REQUEST_URI']);
 		$query = isset($uri['query']) ? $uri['query'] : '';
 		$uri = isset($uri['path']) ? $uri['path'] : '';
@@ -257,6 +264,7 @@ class CI_URI {
 
 	/**
 	 * Parse QUERY_STRING
+	 * 分析 REQUEST_STRING
 	 *
 	 * Will parse QUERY_STRING and automatically detect the URI from it.
 	 *

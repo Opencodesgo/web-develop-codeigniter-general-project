@@ -43,6 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * CodeIgniter Calendar Class
+ * 日历类，可以创建日历
  *
  * This class enables the creation of calendars
  *
@@ -145,6 +146,7 @@ class CI_Calendar {
 
 	/**
 	 * Initialize the user preferences
+	 * 初始化用户首选项
 	 *
 	 * Accepts an associative array as input, containing display preferences
 	 *

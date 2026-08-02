@@ -57,6 +57,7 @@ if ( ! function_exists('directory_map'))
 {
 	/**
 	 * Create a Directory Map
+	 * 创建目录映射
 	 *
 	 * Reads the specified directory and builds an array
 	 * representation of it. Sub-folders contained with the

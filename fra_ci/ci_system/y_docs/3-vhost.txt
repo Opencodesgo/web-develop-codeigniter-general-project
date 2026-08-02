@@ -1,0 +1,18 @@
+
+#8023 ci-trans	23.12.15
+server {
+        listen       8023;
+        server_name  ts.dev1.net;
+		index  index.html index.htm index.php;
+		root   E:/www/w_devr/w_fra/fra-codeigniter-source-chinese-trans/v1/v1.0_3.1;
+		
+        location / {
+			try_files $uri $uri/ /index.php?$query_string;
+        }
+        location ~ \.php$ {
+            fastcgi_pass   127.0.0.1:9000;
+            fastcgi_index  index.php;
+            fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+            include        fastcgi_params;
+        }
+}

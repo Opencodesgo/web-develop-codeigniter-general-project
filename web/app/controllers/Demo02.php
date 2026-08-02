@@ -5,13 +5,13 @@
 
 class Demo02 extends CI_Controller {
 	
-	//http://localhost:8024/demo02
+	//http://localhost:8102/demo02
 	public function index() {		
 		echo 'This is Demo02';
 	}
 	
 	/**
-	 * http://localhost:8024/demo02/getdata
+	 * http://localhost:8102/demo02/getdata
 	 * 场景1：读取数据
 	 */
 	public function getdata() {
@@ -21,7 +21,7 @@ class Demo02 extends CI_Controller {
 	}
 	
 	/**
-	 * http://localhost:8024/demo02/gettables
+	 * http://localhost:8102/demo02/gettables
 	 * 场景2：获取数据表清单
 	 */
 	public function gettables() {

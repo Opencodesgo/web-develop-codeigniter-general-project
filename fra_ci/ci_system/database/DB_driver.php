@@ -130,6 +130,7 @@ abstract class CI_DB_driver {
 
 	/**
 	 * Collation
+	 * 排序
 	 *
 	 * @var	string
 	 */
@@ -137,6 +138,7 @@ abstract class CI_DB_driver {
 
 	/**
 	 * Encryption flag/data
+	 * 加密标记
 	 *
 	 * @var	mixed
 	 */
@@ -144,6 +146,7 @@ abstract class CI_DB_driver {
 
 	/**
 	 * Swap Prefix
+	 * 内存前缀
 	 *
 	 * @var	string
 	 */
@@ -151,6 +154,7 @@ abstract class CI_DB_driver {
 
 	/**
 	 * Database port
+	 * 数据库端口
 	 *
 	 * @var	int
 	 */
@@ -158,6 +162,7 @@ abstract class CI_DB_driver {
 
 	/**
 	 * Persistent connection flag
+	 * 持久连接标记
 	 *
 	 * @var	bool
 	 */
@@ -165,6 +170,7 @@ abstract class CI_DB_driver {
 
 	/**
 	 * Connection ID
+	 * 连接ID
 	 *
 	 * @var	object|resource
 	 */
@@ -172,6 +178,7 @@ abstract class CI_DB_driver {
 
 	/**
 	 * Result ID
+	 * 结果ID
 	 *
 	 * @var	object|resource
 	 */
@@ -179,6 +186,7 @@ abstract class CI_DB_driver {
 
 	/**
 	 * Debug flag
+	 * 调试标志
 	 *
 	 * Whether to display error messages.
 	 *
@@ -188,6 +196,7 @@ abstract class CI_DB_driver {
 
 	/**
 	 * Benchmark time
+	 * 基准时间
 	 *
 	 * @var	int
 	 */
@@ -195,6 +204,7 @@ abstract class CI_DB_driver {
 
 	/**
 	 * Executed queries count
+	 * 执行查询计数
 	 *
 	 * @var	int
 	 */
@@ -220,6 +230,7 @@ abstract class CI_DB_driver {
 
 	/**
 	 * Queries list
+	 * 查询列表
 	 *
 	 * @see	CI_DB_driver::$save_queries
 	 * @var	string[]

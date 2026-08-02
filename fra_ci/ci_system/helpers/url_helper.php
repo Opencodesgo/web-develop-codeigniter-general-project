@@ -57,6 +57,7 @@ if ( ! function_exists('site_url'))
 {
 	/**
 	 * Site URL
+	 * 站点URL
 	 *
 	 * Create a local URL based on your basepath. Segments can be passed via the
 	 * first parameter either as a string or an array.
@@ -77,6 +78,7 @@ if ( ! function_exists('base_url'))
 {
 	/**
 	 * Base URL
+	 * 基础URL
 	 *
 	 * Create a local URL based on your basepath.
 	 * Segments can be passed in as a string or an array, same as site_url
@@ -98,6 +100,7 @@ if ( ! function_exists('current_url'))
 {
 	/**
 	 * Current URL
+	 * 当前URL
 	 *
 	 * Returns the full URL (including segments) of the page where this
 	 * function is placed
@@ -117,6 +120,7 @@ if ( ! function_exists('uri_string'))
 {
 	/**
 	 * URL String
+	 * URL字符串
 	 *
 	 * Returns the URI segments.
 	 *
@@ -134,6 +138,7 @@ if ( ! function_exists('index_page'))
 {
 	/**
 	 * Index page
+	 * 默认页
 	 *
 	 * Returns the "index_page" from your config file
 	 *

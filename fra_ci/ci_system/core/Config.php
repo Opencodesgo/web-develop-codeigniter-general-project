@@ -84,7 +84,7 @@ class CI_Config {
 
 	/**
 	 * Class constructor
-	 * 类结构
+	 * 类结构化
 	 *
 	 * Sets the $config data from the primary config.php file as a class variable.
 	 *
@@ -155,6 +155,7 @@ class CI_Config {
 					continue;
 				}
 
+				// 加载配置文件，为什么不用include_once
 				include($file_path);
 
 				if ( ! isset($config) OR ! is_array($config))
@@ -201,6 +202,7 @@ class CI_Config {
 
 	/**
 	 * Fetch a config file item
+	 * 获取一个配置的值
 	 *
 	 * @param	string	$item	Config item name
 	 * @param	string	$index	Index name
@@ -220,6 +222,7 @@ class CI_Config {
 
 	/**
 	 * Fetch a config file item with slash appended (if not empty)
+	 * 获取附加了斜线的配置文件项（如果不是空的）
 	 *
 	 * @param	string		$item	Config item name
 	 * @return	string|null	The configuration item or NULL if the item doesn't exist

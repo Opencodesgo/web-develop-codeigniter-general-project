@@ -1,8 +1,0 @@
-
-
-================================
-Date: 2022-11-19
-version: v1.0
-version2: v3.1.11
-内核版本来自：fra_ci/ci_system/core/CodeIgniter.php  常量 CI_VERSION
-================================

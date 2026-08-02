@@ -94,7 +94,7 @@ class CI_Upload {
 
 	/**
 	 * Maximum filename length
-	 * 最大文件长？
+	 * 最大文件名长
 	 *
 	 * @var	int
 	 */
@@ -124,6 +124,7 @@ class CI_Upload {
 
 	/**
 	 * Filename
+	 * 文件名
 	 *
 	 * @var	string
 	 */
@@ -138,6 +139,7 @@ class CI_Upload {
 
 	/**
 	 * File type
+	 * 文件类型
 	 *
 	 * @var	string
 	 */
@@ -145,6 +147,7 @@ class CI_Upload {
 
 	/**
 	 * File size
+	 * 文件大小
 	 *
 	 * @var	int
 	 */
@@ -152,6 +155,7 @@ class CI_Upload {
 
 	/**
 	 * Filename extension
+	 * 文件名后缀
 	 *
 	 * @var	string
 	 */

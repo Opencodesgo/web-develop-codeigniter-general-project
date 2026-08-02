@@ -84,13 +84,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	{
 		require_once(APPPATH.'config/constants.php');
 	}
-	
-	//备注：如果两个文件中都有这个设置，前面定义了，后面会被替换
+	//备注：如果两个文件中都有这个设置，前面定义了，会被后面替换
+
 
 /*
  * ------------------------------------------------------
  *  Load the global functions
- *	加载框架依赖的函数库
+ *	加载框架依赖的函数库，共有20个函数，load_class也在其中
  * ------------------------------------------------------
  */
 	require_once(BASEPATH.'core/Common.php');
@@ -102,6 +102,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * 安全代码，当版本小于5.4时触发，现在用5.4的很少了
  * ------------------------------------------------------
  */
+
+// 这里加了这段代码，控制PHP版本需大于等于7.2
+if( ! is_php('7.2')) {
+	echo 'The PHP version is 7.2 or heigher! '.PHP_VERSION;
+	exit(3); 
+}
+
 
 if ( ! is_php('5.4'))
 {
@@ -163,6 +170,7 @@ if ( ! is_php('5.4'))
 /*
  * ------------------------------------------------------
  *  Set the subclass_prefix
+ *  设置subclass_prefix，配置文件里默认为 MY_
  * ------------------------------------------------------
  *
  * Normally the "subclass_prefix" is set in the config file.
@@ -184,7 +192,7 @@ if ( ! is_php('5.4'))
 /*
  * ------------------------------------------------------
  *  Should we use a Composer autoloader?
- *  如果启用了composer加载，这里需要处理
+ *  如果启用了composer加载，需要加载，配置文件里默认为 FALSE
  * ------------------------------------------------------
  */
 	if ($composer_autoload = config_item('composer_autoload'))
@@ -259,6 +267,7 @@ if ( ! is_php('5.4'))
 /*
  * ------------------------------------------------------
  * Important charset-related stuff
+ * 导入charset，配置文件里默认为 UTF-8
  * ------------------------------------------------------
  *
  * Configure mbstring and/or iconv if they are enabled
@@ -310,7 +319,8 @@ if ( ! is_php('5.4'))
 /*
  * ------------------------------------------------------
  *  Load compatibility features
- *  加载兼容方法，主要有以下几个，hash、mbstring、password、standard
+ *  加载兼容方法，主要有以下几个，mbstring、hash、password、standard
+ *  前面设置了版本至少为7.2，除了mbstring外其他都不会执行
  * ------------------------------------------------------
  */
 	require_once(BASEPATH.'core/compat/mbstring.php');		# core/compat/
@@ -324,7 +334,7 @@ if ( ! is_php('5.4'))
  * ------------------------------------------------------
  */
 	$UNI =& load_class('Utf8', 'core');
-	// utf8类，UNI，用于对UTF-8字符集处理的相关支持。其他组件如 INPUT 组件，需要改组件的支持。
+	// utf8类，UNI，用于对UTF-8字符集处理的相关支持。其他组件如 INPUT 组件，需要该组件的支持。
 
 /*
  * ------------------------------------------------------
@@ -397,10 +407,10 @@ if ( ! is_php('5.4'))
 
 	/**
 	 * Reference to the CI_Controller method.
+	 * 引用自CI控制器的方法
 	 *
 	 * Returns current CI instance object
-	 *
-	 * 指向CI_Controller的引用，返回CI对象
+	 * 返回CI对象
 	 *
 	 * @return CI_Controller
 	 */
@@ -410,6 +420,7 @@ if ( ! is_php('5.4'))
 	}
 
 	// 加载应用的应里的core控制器，如果有的话，在实际应用中都放在controllers里一起了
+	// app/core/MY_Controller.php
 	if (file_exists(APPPATH.'core/'.$CFG->config['subclass_prefix'].'Controller.php'))
 	{
 		require_once APPPATH.'core/'.$CFG->config['subclass_prefix'].'Controller.php';

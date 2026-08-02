@@ -81,7 +81,7 @@ class CI_Hooks {
 
 	/**
 	 * Array with class objects to use hooks methods
-	 * 钩子的对象数组
+	 * 钩子的对象数组，在这里定义使用钩子的方法
 	 *
 	 * @var array
 	 */
@@ -89,6 +89,7 @@ class CI_Hooks {
 
 	/**
 	 * In progress flag
+	 * 在进行中标志
 	 *
 	 * Determines whether hook is in progress, used to prevent infinte loops
 	 *
@@ -141,6 +142,7 @@ class CI_Hooks {
 
 	/**
 	 * Call Hook
+	 * 调取钩子，被CodeIgniter文件调用
 	 *
 	 * Calls a particular hook. Called by CodeIgniter.php.
 	 *
@@ -175,10 +177,11 @@ class CI_Hooks {
 
 	/**
 	 * Run Hook
+	 * 运行钩子，子方法
 	 *
 	 * Runs a particular hook
 	 *
-	 * @param	array	$data	Hook details
+	 * @param	array	$data	Hook details	文件及参数
 	 * @return	bool	TRUE on success or FALSE on failure
 	 */
 	protected function _run_hook($data)
@@ -210,6 +213,7 @@ class CI_Hooks {
 
 		// -----------------------------------
 		// Set file path
+		// 配置出file文件路径
 		// -----------------------------------
 
 		if ( ! isset($data['filepath'], $data['filename']))
@@ -225,6 +229,7 @@ class CI_Hooks {
 		}
 
 		// Determine and class and/or function names
+		// 获取类、方法、参数
 		$class		= empty($data['class']) ? FALSE : $data['class'];
 		$function	= empty($data['function']) ? FALSE : $data['function'];
 		$params		= isset($data['params']) ? $data['params'] : '';

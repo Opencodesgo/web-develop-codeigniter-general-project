@@ -121,6 +121,7 @@ class CI_Exceptions {
 
 	/**
 	 * 404 Error Handler
+	 * 显示404
 	 *
 	 * @uses	CI_Exceptions::show_error()
 	 *
@@ -155,7 +156,7 @@ class CI_Exceptions {
 
 	/**
 	 * General Error Page
-	 * 普通错误
+	 * 一般错误
 	 *
 	 * Takes an error message as input (either as a string or an array)
 	 * and displays it using the specified template.
@@ -169,6 +170,7 @@ class CI_Exceptions {
 	 */
 	public function show_error($heading, $message, $template = 'error_general', $status_code = 500)
 	{
+		// 取配置的默认视图模板
 		$templates_path = config_item('error_views_path');
 		if (empty($templates_path))
 		{
@@ -202,6 +204,7 @@ class CI_Exceptions {
 
 	public function show_exception($exception)
 	{
+		// 取配置的默认视图模板
 		$templates_path = config_item('error_views_path');
 		if (empty($templates_path))
 		{
@@ -239,6 +242,7 @@ class CI_Exceptions {
 
 	/**
 	 * Native PHP error handler
+	 * PHP错误处理
 	 *
 	 * @param	int	$severity	Error level
 	 * @param	string	$message	Error message
@@ -248,6 +252,7 @@ class CI_Exceptions {
 	 */
 	public function show_php_error($severity, $message, $filepath, $line)
 	{
+		// 取配置的默认视图模板
 		$templates_path = config_item('error_views_path');
 		if (empty($templates_path))
 		{

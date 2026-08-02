@@ -68,6 +68,7 @@ class CI_Loader {
 
 	/**
 	 * List of paths to load views from
+	 * 加载视图路径
 	 *
 	 * @var	array
 	 */
@@ -75,6 +76,7 @@ class CI_Loader {
 
 	/**
 	 * List of paths to load libraries from
+	 * 加载类路径
 	 *
 	 * @var	array
 	 */
@@ -82,6 +84,7 @@ class CI_Loader {
 
 	/**
 	 * List of paths to load models from
+	 * 加载模型路径
 	 *
 	 * @var	array
 	 */
@@ -89,6 +92,7 @@ class CI_Loader {
 
 	/**
 	 * List of paths to load helpers from
+	 * 加载帮助类路径
 	 *
 	 * @var	array
 	 */
@@ -96,6 +100,7 @@ class CI_Loader {
 
 	/**
 	 * List of cached variables
+	 * 缓存参数
 	 *
 	 * @var	array
 	 */
@@ -103,6 +108,7 @@ class CI_Loader {
 
 	/**
 	 * List of loaded classes
+	 * 加载类文件
 	 *
 	 * @var	array
 	 */
@@ -110,6 +116,7 @@ class CI_Loader {
 
 	/**
 	 * List of loaded models
+	 * 加载模型
 	 *
 	 * @var	array
 	 */
@@ -117,6 +124,7 @@ class CI_Loader {
 
 	/**
 	 * List of loaded helpers
+	 * 加载帮助类
 	 *
 	 * @var	array
 	 */
@@ -124,6 +132,7 @@ class CI_Loader {
 
 	/**
 	 * List of class name mappings
+	 * 自定义类映射关系，unit、agent
 	 *
 	 * @var	array
 	 */
@@ -186,6 +195,7 @@ class CI_Loader {
 
 	/**
 	 * Library Loader
+	 * 加载类，在控制器调用时才加载
 	 *
 	 * Loads and instantiates libraries.
 	 * Designed to be called from application controllers.
@@ -210,7 +220,7 @@ class CI_Loader {
 					$this->library($value, $params);
 				}
 				else
-				{
+				{	// 下标非数字为字符串，类名放到最后面去了？
 					$this->library($key, $params, $value);
 				}
 			}
@@ -231,7 +241,7 @@ class CI_Loader {
 
 	/**
 	 * Model Loader
-	 * 引入模型，没有预先加载，在控制器里需要使用时才引入
+	 * 引入模型，在控制器里需要使用时才加载
 	 *
 	 * Loads and instantiates models.
 	 *
@@ -291,6 +301,7 @@ class CI_Loader {
 				$db_conn = '';
 			}
 
+			// 连接数据库，如未连接上也不会中止代码运行
 			$this->database($db_conn, FALSE, TRUE);
 		}
 
@@ -317,13 +328,14 @@ class CI_Loader {
 			}
 			elseif ( ! class_exists('CI_Model', FALSE))
 			{
+				// CI_Model在框架Model.php里，还是得走这条代码
 				require_once(BASEPATH.'core'.DIRECTORY_SEPARATOR.'Model.php');
 			}
 
 			$class = config_item('subclass_prefix').'Model';
 			if (file_exists($app_path.$class.'.php'))
 			{
-				// 引入应用里core里的模型
+				// 引入应用里的core的模型
 				require_once($app_path.$class.'.php');
 				if ( ! class_exists($class, FALSE))
 				{
@@ -365,6 +377,7 @@ class CI_Loader {
 		}
 
 		$this->_ci_models[] = $name;
+		// 应用里的模型在这里加载并赋值给超级对象以类名为属性
 		$model = new $model();
 		$CI->$name = $model;
 		log_message('info', 'Model "'.get_class($model).'" initialized');
@@ -409,7 +422,7 @@ class CI_Loader {
 		$CI->db = '';
 
 		// Load the DB class
-		//db属性赋DB对象
+		//DB赋值给超级对象的db属性
 		$CI->db =& DB($params, $query_builder);
 		return $this;
 	}
@@ -418,6 +431,7 @@ class CI_Loader {
 
 	/**
 	 * Load the Database Utilities Class
+	 * 加载数据库公用类
 	 *
 	 * @param	object	$db	Database object
 	 * @param	bool	$return	Whether to return the DB Utilities class object or not
@@ -433,6 +447,7 @@ class CI_Loader {
 			$db =& $CI->db;
 		}
 
+		// 加载文件分2个，一个是公共的类，一个是对应驱动的类
 		require_once(BASEPATH.'database/DB_utility.php');
 		require_once(BASEPATH.'database/drivers/'.$db->dbdriver.'/'.$db->dbdriver.'_utility.php');
 		$class = 'CI_DB_'.$db->dbdriver.'_utility';
@@ -450,6 +465,7 @@ class CI_Loader {
 
 	/**
 	 * Load the Database Forge Class
+	 * 加载数据库制造类
 	 *
 	 * @param	object	$db	Database object
 	 * @param	bool	$return	Whether to return the DB Forge class object or not
@@ -464,6 +480,7 @@ class CI_Loader {
 			$db =& $CI->db;
 		}
 
+		// 加载文件分2个，一个是公共的类，一个是对应驱动的类
 		require_once(BASEPATH.'database/DB_forge.php');
 		require_once(BASEPATH.'database/drivers/'.$db->dbdriver.'/'.$db->dbdriver.'_forge.php');
 
@@ -600,6 +617,7 @@ class CI_Loader {
 
 	/**
 	 * Helper Loader
+	 * 加载帮助类
 	 *
 	 * @param	string|string[]	$helpers	Helper name(s)
 	 * @return	object
@@ -883,6 +901,7 @@ class CI_Loader {
 
 	/**
 	 * Internal CI Data Loader
+	 * CI 数据加载，用于加载视图和文件
 	 *
 	 * Used to load views and files.
 	 *
@@ -1314,11 +1333,13 @@ class CI_Loader {
 	 */
 	protected function _ci_autoloader()
 	{
+		// 加载配置下autoload.php
 		if (file_exists(APPPATH.'config/autoload.php'))
 		{
 			include(APPPATH.'config/autoload.php');
 		}
 
+		// 如分环境，会覆盖
 		if (file_exists(APPPATH.'config/'.ENVIRONMENT.'/autoload.php'))
 		{
 			include(APPPATH.'config/'.ENVIRONMENT.'/autoload.php');
@@ -1387,6 +1408,7 @@ class CI_Loader {
 
 	/**
 	 * Prepare variables for _ci_vars, to be later extract()-ed inside views
+	 * 为_ci_vars做准备，在后面视图里提取
 	 *
 	 * Converts objects to associative arrays and filters-out internal
 	 * variable names (i.e. keys prefixed with '_ci_').

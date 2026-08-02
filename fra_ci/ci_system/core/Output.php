@@ -299,7 +299,7 @@ class CI_Output {
 
 	/**
 	 * Get Current Content-Type Header
-	 * 获取内容的类型
+	 * 获取当前内容类型头
 	 *
 	 * @return	string	'text/html', if not already set
 	 */
@@ -715,7 +715,7 @@ class CI_Output {
 		$cache_path = ($CFG->item('cache_path') === '') ? APPPATH.'cache/' : $CFG->item('cache_path');
 
 		// Build the file path. The file name is an MD5 hash of the full URI
-		// 缓存文件是全URI的md5哈希，生成URI
+		// 缓存文件是全URI的md5，生成URI
 		$uri = $CFG->item('base_url').$CFG->item('index_page').$URI->uri_string;
 
 		// 如果缓存文件考虑到了查询字符串的key影响，需要将其拼接在当前uri中
@@ -731,6 +731,7 @@ class CI_Output {
 			}
 		}
 
+		// uri进行md5
 		$filepath = $cache_path.md5($uri);
 
 		if ( ! file_exists($filepath) OR ! $fp = @fopen($filepath, 'rb'))
@@ -868,6 +869,7 @@ class CI_Output {
 
 	/**
 	 * Byte-safe strlen()
+	 * 字节安全长度
 	 *
 	 * @param	string	$str
 	 * @return	int
@@ -883,6 +885,7 @@ class CI_Output {
 
 	/**
 	 * Byte-safe substr()
+	 * 字节安全截取
 	 *
 	 * @param	string	$str
 	 * @param	int	$start

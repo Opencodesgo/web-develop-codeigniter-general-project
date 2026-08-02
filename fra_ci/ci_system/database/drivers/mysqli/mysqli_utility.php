@@ -39,10 +39,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * mysqli utility
+ * MySQLi 公共类
  */
 
 /**
  * MySQLi Utility Class
+ * MySQLi 公共类
  *
  * @package		CodeIgniter
  * @subpackage	Drivers

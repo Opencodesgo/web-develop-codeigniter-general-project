@@ -59,7 +59,7 @@ class CI_Benchmark {
 
 	/**
 	 * List of all benchmark markers
-	 * 保存标识
+	 * 基准标记
 	 *
 	 * @var	array
 	 */
@@ -67,7 +67,7 @@ class CI_Benchmark {
 
 	/**
 	 * Set a benchmark marker
-	 * 设置一个标识
+	 * 设置一个标记
 	 *
 	 * Multiple calls to this function can be made so that several
 	 * execution points can be timed.
@@ -84,10 +84,10 @@ class CI_Benchmark {
 
 	/**
 	 * Elapsed time
-	 * 所用时间
+	 * 运行时间
 	 *
 	 * Calculates the time difference between two marked points.
-	 * 计算两个点之间的时间差
+	 * 计算两个标记点之间的时间差
 	 *
 	 * If the first parameter is empty this function instead returns the
 	 * {elapsed_time} pseudo-variable. This permits the full system
@@ -116,12 +116,13 @@ class CI_Benchmark {
 			return '';
 		}
 
-		// 能找到直接取，没找到取当前时间
+		// point2有能找到直接取，没找到取当前时间
 		if ( ! isset($this->marker[$point2]))
 		{
 			$this->marker[$point2] = microtime(TRUE);
 		}
 
+		// 通过千分位分组来格式化数字
 		return number_format($this->marker[$point2] - $this->marker[$point1], $decimals);
 	}
 

@@ -38,6 +38,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
+ * Jquery 类
+ */
+
+/**
  * Jquery Class
  *
  * @package		CodeIgniter

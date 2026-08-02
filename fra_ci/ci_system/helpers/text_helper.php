@@ -57,6 +57,7 @@ if ( ! function_exists('word_limiter'))
 {
 	/**
 	 * Word Limiter
+	 * 单词限制器
 	 *
 	 * Limits a string to X number of words.
 	 *
@@ -89,6 +90,7 @@ if ( ! function_exists('character_limiter'))
 {
 	/**
 	 * Character Limiter
+	 * 字符限制器
 	 *
 	 * Limits the string based on the character count.  Preserves complete words
 	 * so the character count may not be exactly as specified.

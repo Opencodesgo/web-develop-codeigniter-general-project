@@ -78,6 +78,7 @@ if ( ! function_exists('write_file'))
 {
 	/**
 	 * Write File
+	 * 写文件，写入指定的路径
 	 *
 	 * Writes data to the file specified in the path.
 	 * Creates a new file if non-existent.
@@ -117,6 +118,7 @@ if ( ! function_exists('delete_files'))
 {
 	/**
 	 * Delete Files
+	 * 删除文件
 	 *
 	 * Deletes all files contained in the supplied directory path.
 	 * Files must be writable or owned by the system in order to be deleted.
@@ -170,6 +172,7 @@ if ( ! function_exists('get_filenames'))
 {
 	/**
 	 * Get Filenames
+	 * 得到文件名
 	 *
 	 * Reads the specified directory and builds an array containing the filenames.
 	 * Any sub-folders contained within the specified path are read as well.
@@ -218,6 +221,7 @@ if ( ! function_exists('get_dir_file_info'))
 {
 	/**
 	 * Get Directory File Information
+	 * 获取目录文件信息
 	 *
 	 * Reads the specified directory and builds an array containing the filenames,
 	 * filesize, dates, and permissions
@@ -271,6 +275,7 @@ if ( ! function_exists('get_file_info'))
 {
 	/**
 	 * Get File Info
+	 * 得到文件信息，如路径、名称、大小、修改日期
 	 *
 	 * Given a file and path, returns the name, path, size, date modified
 	 * Second parameter allows you to explicitly declare what information you want returned
@@ -377,6 +382,7 @@ if ( ! function_exists('symbolic_permissions'))
 {
 	/**
 	 * Symbolic Permissions
+	 * 符号权限
 	 *
 	 * Takes a numeric value representing a file's permissions and returns
 	 * standard symbolic notation representing that value

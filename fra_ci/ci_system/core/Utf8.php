@@ -57,6 +57,7 @@ class CI_Utf8 {
 
 	/**
 	 * Class constructor
+	 * 类初始化
 	 *
 	 * Determines if UTF-8 support is to be enabled.
 	 *
@@ -86,6 +87,7 @@ class CI_Utf8 {
 
 	/**
 	 * Clean UTF-8 strings
+	 * 清理UTF-8字符串
 	 *
 	 * Ensures strings contain only valid UTF-8 characters.
 	 *
@@ -113,6 +115,7 @@ class CI_Utf8 {
 
 	/**
 	 * Remove ASCII control characters
+	 * 删除ASCII控制字符
 	 *
 	 * Removes all ASCII control characters except horizontal tabs,
 	 * line feeds, and carriage returns, as all others can cause
