@@ -1,0 +1,29 @@
+
+一、使用方法
+
+$this->load->helper('url');
+
+
+二、函数列表
+
+array_helper  	数组
+captcha_helper	验证码
+cookie_hepler	COOKIE
+date_helper		日期
+directory_helper目录
+download_helper	下载
+email_helper	邮件
+file_helper		文件
+form_helper		表格
+html_helper 	HTML
+inflector_helper 变形
+language_helper	语言
+number_helper	数字
+path_helper		路径
+security_hepler	安全
+smiley_helper	笑脸？
+string			字符串
+text			文本
+typograpgy_helper 打印？
+url_helper		URL
+xml_helper		XML

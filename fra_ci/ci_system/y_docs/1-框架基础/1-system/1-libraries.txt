@@ -1,0 +1,22 @@
+
+路径：system/libraries
+
+
+Cache
+Javascript
+Session
+
+Calendar	日历
+Cart		购物车
+Dirver		驱动
+Email		邮箱
+Encrypt		加密
+Form		表单验证
+Ftp			FTP
+Image		图片
+Migration
+Pagination	分页
+Parse
+Profiler
+Table		表格
+Zip			压缩

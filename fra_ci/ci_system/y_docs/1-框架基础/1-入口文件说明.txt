@@ -1,0 +1,23 @@
+
+核心入口文件：
+
+	system/core/CodeIgniter.php
+
+
+系统类清单
+
+以下是系统核心文件的清单，它们在每次 CodeIgniter 启动时被调用：
+Benchmark
+Config
+Controller
+Exceptions
+Hooks
+Input
+Language
+Loader
+Log
+Output
+Router
+Security
+URL
+Utf8

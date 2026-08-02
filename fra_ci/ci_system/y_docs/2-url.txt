@@ -1,0 +1,8 @@
+
+本地访问链接：
+http://localhost:8023/
+
+nginx配置文件可以参考同目录下的 vhost.txt
+
+官网链接：
+https://codeigniter.com/

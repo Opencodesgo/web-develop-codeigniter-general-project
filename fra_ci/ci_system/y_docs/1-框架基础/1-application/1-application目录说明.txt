@@ -1,0 +1,26 @@
+
+application 目录说明
+
+cache
+
+config
+
+controllers
+
+core
+
+helpers
+
+hooks
+
+language
+
+libraries
+
+logs
+
+models
+
+third_party
+
+views

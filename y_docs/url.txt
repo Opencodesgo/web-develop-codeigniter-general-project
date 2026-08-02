@@ -1,6 +1,0 @@
-
-http://localhost:8024/
-
-github: https://github.com/Work0755/dev-codeigniter-backend-frd
-
-demo: dev-codeigniter-backend.demo.568899.net

@@ -1,0 +1,22 @@
+
+system 目录说明
+
+core
+	框架核心类文件
+
+database
+	数据库
+
+fonts
+	字体
+
+helpers
+	帮助
+
+language
+	语言
+
+libraries
+	类
+
+
