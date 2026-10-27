@@ -1,10 +1,5 @@
 <?php
 /**
- * 这是主入口文件
- * 此文件的主要目的，是进行一些初始化设置及加载core/CodeIgniter.php
- */
-
-/**
  * CodeIgniter
  *
  * An open source application development framework for PHP
@@ -40,10 +35,15 @@
  * @since	Version 1.0.0
  * @filesource
  */ 
+ 
+/**
+ * 这是主入口文件
+ * 此文件的主要目的，是进行一些初始化设置及加载core/CodeIgniter.php
+ */
 
 /*
  *---------------------------------------------------------------
- * APPLICATION ENVIRONMENT	应用环境
+ * APPLICATION ENVIRONMENT
  *---------------------------------------------------------------
  *
  * You can load different configurations depending on your
@@ -111,7 +111,7 @@ switch (ENVIRONMENT)
  * Set the path if it is not in the same directory as this file.
  * 指定系统目录名称，可以自己改名，在实际应用中index文件在public文件夹中，需要改目录 
  */
-	$system_path = '../../fra_ci/ci_system';		#注意目录改了上2层
+	$system_path = '../../fra_sys/ci_system';		#注意目录改了上2层
 
 /*
  *---------------------------------------------------------------
